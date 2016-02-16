@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  resources :collections
+  resources :item_tags
+  resources :tags
+  resources :categories
+  resources :items
+  resources :orders
+
+namespace :api, defaults: {format: 'json'} do
+  namespace :v1, defaults: {format: 'json'} do 
+     post 'orders' => 'orders#orders'
+  end
+
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
